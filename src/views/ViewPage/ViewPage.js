@@ -260,22 +260,24 @@ const handleClose = () => {
   return (
     <div style={{backgroundColor:'white'}}>
       <div style={{display:'flex', justifyContent:'center', alignItems:'center', borderBottom:'2px solid #F0F1EC', height:'10%', width:'100%', backgroundColor:'white', position:'fixed', zIndex:'1'}}>
-        <div style={{marginLeft:'-63%', position:'fixed'}}>
+        <Container style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+          <div style={{marginLeft:'', position:''}}>
               <Button onClick={()=>buttonClick("/")}>
                   <CloseIcon/>
               </Button>
           </div>
-          <div style={{position:'fixed'}}>
+          <div style={{marginLeft:'10%'}}>
               <Button onClick={()=>buttonClick("/")}>
                <img src={require('components/Header/CrowdeeLogoFinal2.png').default}/>
               </Button>
           </div>
-          <div style={{marginRight:'-63%', display:'flex', alignItems:'center'}}>
+          <div style={{marginRight:'', display:'flex', alignItems:'center'}}>
             <Button onClick={()=>buttonClick("/search")}>
               <SearchIcon/>
             </Button>
             {myPageBtn}
           </div>
+        </Container>
       </div>
       <Container>
 
@@ -284,7 +286,7 @@ const handleClose = () => {
 
  
           <div style={{display:'flex', alignItems:'center', flexDirection:'column', height:'25%', width:'92%'}}>
-            <Button onClick={()=>buttonClick(`/category/${category}`)} style={{marginBottom:'-20px'}}>
+            <Button onClick={()=>buttonClick(`/category/${view.category}`)} style={{marginBottom:'-20px'}}>
               <div style={{fontWeight:'bold', color:'gray'}}>{view.category}</div>
               
             </Button>
