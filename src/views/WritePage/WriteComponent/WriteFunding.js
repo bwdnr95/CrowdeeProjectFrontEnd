@@ -96,7 +96,7 @@ export default function WriteFunding(props) {
                     <div style={{borderBottom:'1px solid #CECECE', paddingBottom:'40px', marginBottom:'40px', display:'flex', justifyContent:'space-between'}}>
                         <div>
                             <h4 style={{fontWeight:'bold'}}>최소 펀딩금액</h4>
-                            <h6>설정한 일시가 되면 펀딩이 자동 시작됩니다. 펀딩 시작 전까지<br/>날짜를 변경할 수 있고, 즉시 펀딩을 시작할 수도 있습니다.</h6>
+                            <h6>후원자가 펀딩할 수 있는 최소 금액을 설정하세요.<br/>설정한 금액이 최소 펀딩금액이 됩니다.</h6>
                         </div>
                         <div style={{display:'flex', alignItems:'center'}}>
                             <input name="minFundraising" value={form.minFundraising} onKeyUp={FormValueHandler} onChange={FormValueHandler} style={{border:'1px solid #B6B7B9', borderRadius:'3px', width:'150px', height:'40px', marginRight:'10px'}} placeholder={'최소 펀딩 금액을 입력'}></input>
@@ -107,7 +107,7 @@ export default function WriteFunding(props) {
                     <div style={{borderBottom:'1px solid #CECECE', paddingBottom:'40px', marginBottom:'40px', display:'flex', justifyContent:'space-between'}}>
                         <div>
                             <h4 style={{fontWeight:'bold'}}>최대 후원자 수</h4>
-                            <h6>설정한 일시가 되면 펀딩이 자동 시작됩니다. 펀딩 시작 전까지<br/>날짜를 변경할 수 있고, 즉시 펀딩을 시작할 수도 있습니다.</h6>
+                            <h6>펀딩에 참여할 수 있는 최대 후원자 수를 설정하세요.<br/>설정한 후원자 수가 최대 후원자 수가 됩니다.</h6>
                         </div>
                         <div style={{display:'flex', alignItems:'center' }}>
                             <input name="maxBacker" value={form.maxBacker} onKeyUp={FormValueHandler} onChange={FormValueHandler} style={{border:'1px solid #B6B7B9', borderRadius:'3px', width:'150px', height:'40px', marginRight:'10px'}} placeholder={'최대 후원자 수를 입력'}></input>

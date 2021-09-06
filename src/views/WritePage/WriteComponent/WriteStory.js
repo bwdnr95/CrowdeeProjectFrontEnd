@@ -61,22 +61,22 @@ export default function WriteStory(props) {
                 <Container maxWidth="sm">
                     <div style={{borderBottom:'1px solid #CECECE', paddingBottom:'40px', marginBottom:'40px', }}>
                         <h3 style={{fontWeight:'bold'}}>프로젝트 내용</h3>
-                        <h5>무엇을 만들기 위한 프로젝트인지 분명히 알려주세요.</h5>
+                        <h5>무엇을 만들기 위한 프로젝트인지 분명하게 작성해주세요.</h5>
                         <Write onSave={contentValueHandler} manageUrl={manageUrl} data="content"></Write>
                     </div>
                     <div style={{borderBottom:'1px solid #CECECE', paddingBottom:'40px', marginBottom:'40px'}}>
                         <h3 style={{fontWeight:'bold'}}>프로젝트 예산</h3>
-                        <h5>프로젝트를 소개내용을 요약해주세요.</h5>
+                        <h5>프로젝트 예산을 작성해주세요.</h5>
                         <Write api="budget" onSave={budgetValueHandler} manageUrl={manageUrl} data="budget" ></Write>
                     </div>
                     <div style={{borderBottom:'1px solid #CECECE', paddingBottom:'40px', marginBottom:'40px'}}>
                         <h3 style={{fontWeight:'bold'}}>프로젝트 일정</h3>
-                        <h5>프로젝트 팀 소개내용을 입력해주세요.</h5>
+                        <h5>프로젝트 일정을 작성해주세요.</h5>
                         <Write api="schedule" onSave={scheduleValueHandler} manageUrl={manageUrl} data="schedule" ></Write>
                     </div>
                     <div style={{borderBottom:'1px solid #CECECE', paddingBottom:'40px', marginBottom:'40px'}}>
                         <h3 style={{fontWeight:'bold'}}>프로젝트 팀소개</h3>
-                        <h5>프로젝트 팀 소개내용을 입력해주세요.</h5>
+                        <h5>프로젝트 팀 소개내용을 작성해주세요.</h5>
                         <Write api="aboutUs"  onSave={aboutUsValueHandler} manageUrl={manageUrl} data="aboutUs" ></Write>
                     </div>
                 </Container>    
