@@ -5,6 +5,67 @@ import { useEffect, useState } from "react";
 import BackerView from './BackerView';
 import { Button } from '@material-ui/core';
 import { ACCESS_TOKEN } from "export/export";
+import FundingInspectionAdmin from './FundingInspectionAdmin';
+
+const columns = [
+  {
+    field: 'id',
+    headerName: '아이디',
+    minWidth: '120',
+    maxWidth: '200',
+  },
+  {
+    field: 'title',
+    headerName: '제목',
+    minWidth: '180',
+    maxWidth: '200'
+  },
+  {
+      field: 'summary',
+      headerName: '요약',
+      minWidth: '230',
+      maxWidth: '300'
+    },
+    {
+      field: 'postDate',
+      headerName: '게시일',
+      minWidth: '180',
+      maxWidth: '200'
+    },
+    {
+      field: 'category',
+      headerName: '카테고리',
+      minWidth: '130',
+      maxWidth: '200'
+    },
+    {
+      field: 'manageUrl',
+      headerName: 'Url',
+      minWidth: '150',
+      maxWidth: '200'
+    },
+    {
+      field: 'status',
+      headerName: '상태',
+      minWidth: '130',
+      maxWidth: '200'
+    },
+    {
+      field: 'button',
+      headerName: '상세보기',
+      type: 'button',
+      width: 150,
+      renderCell : (params) => (
+        <Button
+          variant="contained"
+          color="primary"
+          size="small"
+          style={{marginLeft:16}}
+          onClick={(e) => {fundingSelect(e, params)}}
+        >상세보기</Button>
+      )
+    },
+];
 
 function fundingView(list) {
   var tempList = []
@@ -23,83 +84,16 @@ function fundingView(list) {
   return tempList;
 }
 
-
+//펀딩 상세보기로 이동
+function fundingSelect(e, params) {
+  e.preventDefault();
+  window.location.href = 
+    "/admin-fundingView/"+params.row.manageUrl;
+}
 export default function FundingAdmin() {
   
-  //펀딩 상세보기로 이동
-    function fundingSelect(e, params) {
-      e.preventDefault();
-      window.location.href = 
-        "/admin-fundingView/"+params.row.manageUrl;
-    }
     const [rows,setRows] = React.useState([])
     const [token,setToken] = useState(localStorage.getItem("token"))
-
-    const columns = [
-      {
-        field: 'id',
-        headerName: '아이디',
-        type: 'number',
-        width: 120 },
-      {
-        field: 'title',
-        headerName: '제목',
-        width: 150,
-        type: 'text',
-        editable: true,
-      },
-      {
-          field: 'summary',
-          headerName: '요약',
-          type: 'text',
-          width: 120,
-          editable: true,
-        },
-        {
-          field: 'postDate',
-          headerName: '게시일',
-          type: 'text',
-          width: 200,
-          editable: true,
-        },
-        {
-          field: 'category',
-          headerName: '카테고리',
-          type: 'text',
-          width: 150,
-          editable: true,
-        },
-        {
-          field: 'manageUrl',
-          headerName: 'Url',
-          type: 'text',
-          width: 150,
-          editable: false,
-        },
-        {
-          field: 'status',
-          headerName: '상태',
-          type: 'text',
-          width: 150,
-          editable: true,
-        },
-        {
-          field: 'button',
-          headerName: '상세보기',
-          type: 'button',
-          width: 150,
-          editable: true,
-          renderCell : (params) => (
-            <Button
-              variant="contained"
-              color="primary"
-              size="small"
-              style={{marginLeft:16}}
-              onClick={(e) => {fundingSelect(e, params)}}
-            >상세보기</Button>
-          )
-        },
-    ];
 
     useEffect(() => {
         fetch('http://localhost:8081/admin/funding', {
@@ -129,7 +123,6 @@ export default function FundingAdmin() {
           rows={rows}
           columns={columns}
           pageSize={10}
-          checkboxSelection
           disableSelectionOnClick/>
         </div>
       </div>

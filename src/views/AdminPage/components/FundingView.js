@@ -25,33 +25,6 @@ import { ACCESS_TOKEN } from "export/export";
 
 const useStyles = makeStyles(styles);
 
-// function dataSetting(list) {
-//   var TempList = []
-//   console.log("가져오니?")
-//   console.log("여기 제발와줘")
-//   for(var i in list){
-//     TempList.push(
-//       {aboutMe : list.aboutMe,
-//         aboutUs : list.aboutUs, budget : list.budget,
-//         career : list.career,  category : list.category, 
-//         content : list.content, creatorNickName : list.creatorNickName, 
-//         endDate : list.endDate, fundingId : list.fundingId,
-//         goalFundraising : list.goalFundraising, manageUrl : list.manageUrl,
-//         maxBacker : list.maxBacker, memberList : list.memberList,
-//         minFundraising : list.minFundraising, profileImgUrl : list.profileImgUrl,
-//         projectUrl : list.projectUrl, restDate : list.restDate,
-//         schedule : list.schedule, startDate : list.startDate,
-//         status : list.status, subTitle : list.subTitle,
-//         summary : list.summary, tag : list.tag,
-//         thumbNailUrl : list.thumbNailUrl, title : list.title,
-//         totalBacker : list.totalBacker, totalFundraising : list.totalFundraising,
-//         visitCount : list.visitCount, wish : list.wish
-//       }
-//     );
-//     }
-//   return TempList;
-// }
-
 export default function FundingView(props) {
   const [token,setToken] = useState(localStorage.getItem("token"))
   const[view, setView] = useState({

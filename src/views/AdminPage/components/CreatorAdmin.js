@@ -29,46 +29,41 @@ function CreatorView(list) {
     const [rows,setRows] = React.useState([])
 
     const columns = [
-      {
-        field: 'id',
-        headerName: '아이디',
-        type: 'number',
-        width: 120 ,
-      },
-      {
-        field: 'Business_number',
-        headerName: '사업자번호',
-        width: 180,
-        type: 'text',
-        editable: true,
-      },
+        {
+          field: 'id',
+          headerName: '아이디',
+          minWidth: '120',
+          maxWidth: '200'
+        },
+        {
+          field: 'Business_number',
+          headerName: '사업자번호',
+          minWidth: '150',
+          maxWidth: '200'
+        },
         {
           field: 'creator_nickname',
           headerName: '닉네임',
-          type: 'text',
-          width: 170,
-          editable: true,
+          minWidth: '150',
+          maxWidth: '200'
         },
         {
           field: 'status',
           headerName: '상태',
-          type: 'text',
-          width: 150,
-          editable: true,
+          minWidth: '130',
+          maxWidth: '200'
         },
         {
           field: 'authority',
           headerName: '권한',
-          type: 'text',
-          width: 150,
-          editable: true,
+          minWidth: '130',
+          maxWidth: '200'
         },
         {
           field: 'button',
           headerName: '상세보기',
           type: 'button',
-          width: 150,
-          editable: true,
+          width : 130,
           renderCell : (params) => (
             <Button
               variant="contained"
@@ -90,9 +85,6 @@ function CreatorView(list) {
         })  
         .then(res => res.json())
         .then((res) => {
-          console.log("아래")
-          console.log(res)
-          console.log("위")
           if(!res.status==200){
             throw new Error('http 오류');
           }
@@ -108,7 +100,6 @@ function CreatorView(list) {
                 rows={rows}
                 columns={columns}
                 pageSize={10}
-                checkboxSelection
                 disableSelectionOnClick
                 />
             </div>
