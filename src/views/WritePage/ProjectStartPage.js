@@ -168,12 +168,12 @@ export default function ProjectStartPage(props) {
                 {...rest}
             />
 
-            <div style={{marginTop:'5%', marginLeft:'', width:'100%', minHeight:'100%', display:'flex', justifyContent:'center', alignItems:'center', border:'0px solid black'}}>
+            <div style={{marginTop:'15%', marginLeft:'', width:'100%', minHeight:'100%', display:'flex', justifyContent:'center', alignItems:'center', border:'0px solid black'}}>
                 <div style={{width:'400px', display:'flex', border:'0px solid black'}}>
                     <img style={{width:'100%'}} src={require('./crowdee-logo.png').default} />
                 </div>
 
-                <div style={{border:'0px solid black', marginLeft:'100px', marginTop:'100px'}}>
+                <div style={{border:'0px solid black', marginLeft:'100px', marginTop:''}}>
                     {projectData.map((funding) => {
                         return <div style={{width:'100%'}}>
                             <h6 style={{fontWeight:'bold', color:'red'}}><FeedbackIcon fontSize="small"/> 작성 중인 프로젝트가 있습니다.</h6>
@@ -214,14 +214,14 @@ export default function ProjectStartPage(props) {
                             {/* <input type="text" name="projectUrl" onChange={urlChange} style={{border:'1px solid #EDEBEB', borderRadius:'3px', width:'200px', height:'40px'}} placeholder={'URL을 입력해주세요'}></input> */}
                             <Button variant="contained" style={{marginLeft:'10px', marginTop:"20px"}} onClick={doubleCheck}>중복확인</Button>
                         </div>
-                        <div style={{display:'flex', justifyContent:'', paddingTop:'50px'}}>
+                        <div style={{display:'flex', paddingTop:'50px'}}>
                             <Button style={{fontWeight:'bold',display:`${start}`}} variant="contained" color="secondary" onClick={submitStart}>시작하기</Button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div style={{backgroundColor:'white'}}>
-                <Footer />
+            <div style={{marginTop:'15%'}}>
+                <Footer/>
             </div>
         </div>
     );
