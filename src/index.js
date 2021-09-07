@@ -24,7 +24,7 @@ import CreatorInspectionAdmin from "views/AdminPage/components/CreatorInspection
 import FundingView from "views/AdminPage/components/FundingView";
 import FundingInspectionAdmin from "views/AdminPage/components/FundingInspectionAdmin";
 import FundingNo from "views/AdminPage/components/FundingNo";
-
+import CreatorRegistrationPage from "views/CreatorPage/CreatorRegistrationPage"
 import MenuPage from "views/MenuPage/MenuPage";
 import CategoryPage from "views/CategoryPage/CategoryPage";
 import ProjectStartPage from "views/WritePage/ProjectStartPage";
@@ -53,6 +53,7 @@ ReactDOM.render(
       <Switch>
       <Route path="/landing-page" component={LandingPage} />
       <Route path="/signUp" component={SignUpPage} />
+      <Route path="/creator-signUp" component={CreatorRegistrationPage} />
       <Route path="/profile-page" component={ProfilePage} />
       <Route path="/login-page" component={LoginPage} />
       <Route path="/admin-page" component={AdminPage} />

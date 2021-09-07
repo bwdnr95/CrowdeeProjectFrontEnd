@@ -88,6 +88,7 @@ export default function ProjectStartPage(props) {
             }
             else if(res.status==401){
                alert("크리에이터 등록페이지로 넘어갑니다.")
+               props.history.push("/creator-signUp")
             }
             
         });
