@@ -37,6 +37,12 @@ export default function MenuPage() {
                 <div style={{marginTop:'60px'}}>
                     <div>
                         <Button style={{marginBottom:'-30px'}}
+                            onClick={()=>buttonClick('/creator-signUp')}>
+                            <h3 style={{fontWeight:'bold'}}>크리에이터 등록하기</h3>
+                        </Button>
+                    </div>
+                    <div>
+                        <Button style={{marginBottom:'-30px'}}
                             onClick={()=>buttonClick('/my/intro')}>
                             <h3 style={{fontWeight:'bold'}}>마이 페이지</h3>
                         </Button>
