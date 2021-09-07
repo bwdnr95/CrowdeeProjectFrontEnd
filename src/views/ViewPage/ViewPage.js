@@ -377,11 +377,11 @@ const handleClose = () => {
                     fundingId={view.fundingId}
                     title={view.title}
                     creatorNickName={view.creatorNickName}
-                    maxBacker={comma(view.maxBacker)}
-                    totalBacker={comma(view.totalBacker)}
-                    totalFundraising={comma(view.totalFundraising)}
-                    goalFundraising={comma(view.goalFundraising)}
-                    minFundraising={comma(view.minFundraising)}
+                    maxBacker={(view.maxBacker)}
+                    totalBacker={(view.totalBacker)}
+                    totalFundraising={(view.totalFundraising)}
+                    goalFundraising={(view.goalFundraising)}
+                    minFundraising={(view.minFundraising)}
                     projectUrl={view.projectUrl}
                   ></JoinFundingModal>
                 </Modal>

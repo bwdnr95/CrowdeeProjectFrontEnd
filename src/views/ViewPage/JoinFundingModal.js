@@ -84,19 +84,21 @@ export default function JoinFundingModal (props) {
         return obj;//문자열 반환
       }
       const submit = () =>{
-          if(document.querySelector('input[name="amount"]').value<props.minFundraising){
+         console.log("asd",form.amount)
+         console.log(props.minFundraising)
+          if(form.amount<props.minFundraising){
               return alert("최소 펀딩 참여 금액보다 적은 금액으로 참여하실 수 없습니다.")
           }
-          console.log(props.title)
-          setForm({
-            ...form,
-            buyer_name : document.querySelector('input[name="buyer_name"]').value,
-            buyer_email : document.querySelector('input[name="buyer_email"]').value,
-            buyer_tel : document.querySelector('input[name="buyer_tel"]').value,
-            amount : document.querySelector('input[name="amount"]').value,
+         
+        //   setForm({
+        //     ...form,
+        //     buyer_name : document.querySelector('input[name="buyer_name"]').value,
+        //     buyer_email : document.querySelector('input[name="buyer_email"]').value,
+        //     buyer_tel : document.querySelector('input[name="buyer_tel"]').value,
+        //     amount : document.querySelector('input[name="amount"]').value,
             
             
-          })
+        //   })
          
           fetch("http://localhost:8081/contents/participation",{
             headers : {
@@ -155,7 +157,7 @@ export default function JoinFundingModal (props) {
             <div style={{display:'flex', justifyContent:'space-between'}}>
                 <div style={{marginLeft:"100px"}}><h4>남은 티켓</h4></div>
                 <div style={{display:'flex', alignItems:'center',marginRight:"100px"}}>
-                    <h4>{props.maxBacker-props.totalBacker} 장</h4>      
+                    <h4>{comma(props.maxBacker-props.totalBacker)} 장</h4>      
                 </div>
 
             </div>
@@ -163,14 +165,14 @@ export default function JoinFundingModal (props) {
             <div style={{display:'flex', justifyContent:'space-between'}}>
                 <div style={{marginLeft:"100px"}}><h4>총 모인 금액</h4></div>
                 <div style={{display:'flex', alignItems:'center',marginRight:"100px"}}>
-                    <h4>{props.totalFundraising} 원</h4>      
+                    <h4>{comma(props.totalFundraising)} 원</h4>      
                 </div>
 
             </div>
             <div style={{display:'flex', justifyContent:'space-between'}}>
                 <div style={{marginLeft:"100px"}}><h4>최소 펀딩 참여 금액</h4></div>
                 <div style={{display:'flex', alignItems:'center',marginRight:"100px"}}>
-                    <h4>{props.minFundraising} 원</h4>      
+                    <h4>{comma(props.minFundraising)} 원</h4>      
                 </div>
 
             </div>
@@ -242,7 +244,7 @@ export default function JoinFundingModal (props) {
 
             </div>
             <div style={{display:'flex',justifyContent:"center",marginTop:"30px"}}>
-            <p>목표 금액인 {comma(props.goalFundraising)}원이 모이거나 남은 티켓이 모두 <br/> 소진되었을 때 결제가 진행되어 안내 메일이 발송됩니다.<br/> 결제는 펀딩이 성공했을 때 다함께 진행됩니다.</p>
+            <p>목표 금액인 {(props.goalFundraising)}원이 모이거나 남은 티켓이 모두 <br/> 소진되었을 때 결제가 진행되어 안내 메일이 발송됩니다.<br/> 결제는 펀딩이 성공했을 때 다함께 진행됩니다.</p>
             </div>
             <div style={{height : "300px",display:"flex", justifyContent:"center"}}>
                 <Button
