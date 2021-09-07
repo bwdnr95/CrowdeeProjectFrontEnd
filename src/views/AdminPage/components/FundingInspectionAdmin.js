@@ -5,95 +5,7 @@ import { useEffect, useState } from "react";
 import { Button } from '@material-ui/core';
 import { ACCESS_TOKEN } from "export/export";
 
-const columns = [
-    {
-      field: 'id',
-      headerName: '아아디',
-      minWidth: '120',
-      maxWidth: '200',
-    },
-    {
-      field: 'title',
-      headerName: '제목',
-      minWidth: '180',
-      maxWidth: '200'
-    },
-    {
-      field: 'summary',
-      headerName: '요약',
-      minWidth: '300',
-      maxWidth: '500'
-    },
-    {
-      field: 'postDate',
-      headerName: '게시일',
-      minWidth: '180',
-      maxWidth: '200'
-    },
-    {
-      field: 'category',
-      headerName: '카테고리',
-      minWidth: '130',
-      maxWidth: '200'
-    },
-    {
-      field: 'manageUrl',
-      headerName: 'Url',
-      minWidth: '150',
-      maxWidth: '200'
-    },
-    {
-      field: 'status',
-      headerName: '상태',
-      minWidth: '130',
-      maxWidth: '200'
-    },
-    {
-      field: 'button',
-      headerName: '상세보기',
-      type: 'button',
-      width: 150,
-      renderCell : (params) => (
-        <Button
-          variant="contained"
-          color="primary"
-          size="small"
-          style={{marginLeft:16}}
-          onClick={(e) => {fundingSelect(e, params)}}
-        >상세보기</Button>
-      )
-    },
-    {
-      field: 'comfirm',
-      headerName: '승인',
-      type: 'button',
-      width: 100,
-      renderCell : (params) => (
-        <Button
-          variant="contained"
-          color="primary"
-          size="small"
-          style={{marginLeft:16}}
-          onClick={(e) => {fundingOk(e, params)}}
-        >승인</Button>
-      )
-    },
-    {
-      field: 'reject',
-      headerName: '거절',
-      type: 'button',
-      width: 100,
-      renderCell : (params) => (
-        <Button
-          variant="contained"
-          color="primary"
-          size="small"
-          style={{marginLeft:16}}
-          onClick={(e) => {fundingNo(e, params)}}
-        >거절</Button>
-      )
-    },
-];
+
 
 function createData(list) {
   var tempList = []
@@ -116,6 +28,96 @@ function createData(list) {
   export default function FundingInspectionAdmin() {
     const [token,setToken] = useState(localStorage.getItem("token"))
     const [rows,setRows] = React.useState([])
+
+    const columns = [
+      {
+        field: 'id',
+        headerName: '아아디',
+        minWidth: '120',
+        maxWidth: '200',
+      },
+      {
+        field: 'title',
+        headerName: '제목',
+        minWidth: '180',
+        maxWidth: '200'
+      },
+      {
+        field: 'summary',
+        headerName: '요약',
+        minWidth: '300',
+        maxWidth: '500'
+      },
+      {
+        field: 'postDate',
+        headerName: '게시일',
+        minWidth: '180',
+        maxWidth: '200'
+      },
+      {
+        field: 'category',
+        headerName: '카테고리',
+        minWidth: '130',
+        maxWidth: '200'
+      },
+      {
+        field: 'manageUrl',
+        headerName: 'Url',
+        minWidth: '150',
+        maxWidth: '200'
+      },
+      {
+        field: 'status',
+        headerName: '상태',
+        minWidth: '130',
+        maxWidth: '200'
+      },
+      {
+        field: 'button',
+        headerName: '상세보기',
+        type: 'button',
+        width: 150,
+        renderCell : (params) => (
+          <Button
+            variant="contained"
+            color="primary"
+            size="small"
+            style={{marginLeft:16}}
+            onClick={(e) => {fundingSelect(e, params)}}
+          >상세보기</Button>
+        )
+      },
+      {
+        field: 'comfirm',
+        headerName: '승인',
+        type: 'button',
+        width: 100,
+        renderCell : (params) => (
+          <Button
+            variant="contained"
+            color="primary"
+            size="small"
+            style={{marginLeft:16}}
+            onClick={(e) => {fundingOk(e, params)}}
+          >승인</Button>
+        )
+      },
+      {
+        field: 'reject',
+        headerName: '거절',
+        type: 'button',
+        width: 100,
+        renderCell : (params) => (
+          <Button
+            variant="contained"
+            color="primary"
+            size="small"
+            style={{marginLeft:16}}
+            onClick={(e) => {fundingNo(e, params)}}
+          >거절</Button>
+        )
+      },
+  ];
 
     function fundingOk(e, params) {
       e.preventDefault();
