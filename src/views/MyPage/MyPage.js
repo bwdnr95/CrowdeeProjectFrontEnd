@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router';
-import { Button } from '@material-ui/core';
+import { Button, Container } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
 import CloseIcon from '@material-ui/icons/Close';
 import SearchIcon from '@material-ui/icons/Search';
@@ -111,7 +111,7 @@ export default function MyPage(props) {
   
 
     const changeIntro = () =>{
-        setPath('/my/intro')
+        // setPath('/my/intro')
         props.history.push('/my/intro')
     }
     const changeBacked =  () =>{
@@ -175,7 +175,7 @@ export default function MyPage(props) {
     return (
         <div style={{backgroundColor:'white', width:'100%', height:'100%'}}>
             <div style={{display:'flex', justifyContent:'center', alignItems:'center', borderBottom:'2px solid #F0F1EC', height:'10%', width:'100%', backgroundColor:'white', position:'fixed', zIndex:'1'}}>
-                <div style={{marginLeft:'-80%', position:'fixed'}}>
+                <div style={{marginLeft:'-58%', position:'fixed'}}>
                     <Button onClick={()=>buttonClick("/")}>
                         <CloseIcon/>
                     </Button>
@@ -185,33 +185,33 @@ export default function MyPage(props) {
                         <img src={require('components/Header/CrowdeeLogoFinal2.png').default}/>
                     </Button>
                 </div>
-                <div style={{marginRight:'-65%', position:'fixed'}}>
-                    <Button onClick={()=>buttonClick("/search")}>
+                <div style={{marginRight:'-58%', display:'flex', alignItems:'center'}}>
+                <Button onClick={()=>buttonClick("/search")}>
                     <SearchIcon/>
                     </Button>
-                </div>
-                <div style={{marginRight:'-75%', display:'flex', alignItems:'center'}}>
                     <Button onClick={()=>buttonClick("/my")}>
                     <Avatar style={{width:'20px', height:'20px', fontSize:'12px', fontWeight:'bold', marginRight:'5px'}}></Avatar>
                     <h5 style={{fontWeight:'bold', fontSize:'15px'}}>{nickName}</h5>
                     </Button>
                 </div>
             </div>
-            <div style={{backgroundColor:'white', width:'100%', minHeight:'1000px', maxHeight:'100%'}}>
-                <div style={{display:'flex', flexDirection:'column', alignItems:'center', paddingTop:'130px'}}>
-                    <Avatar alt="Remy Sharp" style={{width:"150px",height:"150px"}} />
-                    <h2 style={{fontWeight:'bold', fontSize:'35px'}}>{nickName}</h2>
+            <Container>
+                <div style={{backgroundColor:'white', width:'100%', minHeight:'1000px', maxHeight:'100%'}}>
+                    <div style={{display:'flex', flexDirection:'column', alignItems:'center', paddingTop:'130px'}}>
+                        <Avatar alt="Remy Sharp" style={{width:"150px",height:"150px"}} />
+                        <h2 style={{fontWeight:'bold', fontSize:'35px'}}>{nickName}</h2>
+                    </div>
+                    <div style={{display:'flex', justifyContent:'space-evenly', marginTop:'45px', borderBottom:'1.8px solid #F0F1EC'}}>
+                        <Button style={{fontSize:'25px', color:'gray'}} onClick={changeIntro}>소개</Button>
+                        <Button style={{fontSize:'25px', color:'gray'}} onClick={changeBacked}>후원한 프로젝트</Button>
+                        <Button style={{fontSize:'25px', color:'gray'}} onClick={changeCreated}>진행중인 프로젝트</Button>
+                        <Button style={{fontSize:'25px', color:'gray'}} onClick={changeWish}>찜한 프로젝트</Button>
+                    </div>
+                    <div style={{padding:'40px'}}>
+                    {result}
+                    </div>
                 </div>
-                <div style={{display:'flex', justifyContent:'space-evenly', marginTop:'45px', borderBottom:'1.8px solid #F0F1EC'}}>
-                    <Button style={{fontSize:'25px', color:'gray'}} onClick={changeIntro}>소개</Button>
-                    <Button style={{fontSize:'25px', color:'gray'}} onClick={changeBacked}>후원한 프로젝트</Button>
-                    <Button style={{fontSize:'25px', color:'gray'}} onClick={changeCreated}>진행중인 프로젝트</Button>
-                    <Button style={{fontSize:'25px', color:'gray'}} onClick={changeWish}>찜한 프로젝트</Button>
-                </div>
-                <div style={{padding:'40px'}}>
-                  {result}
-                </div>
-            </div>
+            </Container>
             <Footer />
         </div>    
     );

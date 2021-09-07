@@ -9,51 +9,45 @@ const columns = [
     {
       field: 'id',
       headerName: '아이디',
-      type: 'text',
-      width: 120 
+      minWidth: '120',
+      maxWidth: '200'
     },
     {
       field: 'creatorNickName',
       headerName: '닉네임',
-      width: 170,
-      type: 'text',
-      editable: true,
+      minWidth: '150',
+      maxWidth: '200'
     },
     {
       field: 'bankBookImageUrl',
       headerName: '통장사본',
-      width: 150,
-      type: 'text',
-      editable: true,
+      minWidth: '150',
+      maxWidth: '200'
     },
     {
       field: 'bankName',
       headerName: '은행명',
-      width: 150,
-      type: 'text',
-      editable: true,
+      minWidth: '130',
+      maxWidth: '200'
     }, 
     {
       field: 'accountNumber',
       headerName: '계좌번호',
-      width: 150,
-      type: 'text',
-      editable: true,
+      minWidth: '150',
+      maxWidth: '200'
     },
     {
       field: 'businessNumber',
       headerName: '사업자번호',
-      type: 'text',
-      sortable: false,
-      width: 140,
+      minWidth: '150',
+      maxWidth: '200'
     },
     {
-        field: 'status',
-        headerName: '상태',
-        type: 'text',
-        width: 120,
-        editable: true,
-      },
+      field: 'status',
+      headerName: '상태',
+      minWidth: '130',
+      maxWidth: '200'
+    },
   ];
 
 function CreatorDataList(list) {
@@ -88,9 +82,7 @@ export default function CreatorView() {
       })  
       .then(res => res.json())
       .then((res) => {
-        console.log("아래")
         console.log(res)
-        console.log("위")
         if(!res.status==200){
           throw new Error('http 오류');
         }
@@ -107,7 +99,6 @@ export default function CreatorView() {
         rows={rows}
         columns={columns}
         pageSize={10}
-        checkboxSelection
         disableSelectionOnClick
       />
       </div>

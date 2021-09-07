@@ -172,7 +172,7 @@ export default function CategoryPage(props) {
     return (
         <div style={{backgroundColor:'white'}}>
             <div style={{display:'flex', justifyContent:'center', alignItems:'center', borderBottom:'2px solid #F0F1EC', height:'10%', width:'100%', backgroundColor:'white', position:'fixed', zIndex:'1'}}>
-                <div style={{marginLeft:'-90%', position:'fixed'}}>
+                <div style={{marginLeft:'-63%', position:'fixed'}}>
                     <Button onClick={()=>buttonClickBack()}>
                         <CloseIcon/>
                     </Button>
@@ -182,7 +182,7 @@ export default function CategoryPage(props) {
                     <img src={require('components/Header/CrowdeeLogoFinal2.png').default}/>
                     </Button>
                 </div>
-                <div style={{marginRight:'-70%', position:'fixed'}}>
+                <div style={{marginRight:'-63%', position:'fixed'}}>
                     <Button onClick={()=>buttonClick("/search")}>
                     <SearchIcon/>
                     </Button>
@@ -194,7 +194,7 @@ export default function CategoryPage(props) {
                 </div>
             </div>
                 <Container style={{backgroundColor:'white', minHeight:'100vh', maxHeight:'100%', paddingTop:'100px', display:'flex', justifyContent:'center', alignItems:'center', flexDirection:'column', zIndex:'0', marginBottom:'50px'}}>
-                    <div className={classNames(classes.main, classes.mainRaised)} style={{width:'100%', display:'flex', justifyContent:'center', flexDirection:'column', alignItems:'center', minHeight:'300px', maxHeight:'100%', marginTop:'60px', zIndex:'0'}}>
+                    <div className={classNames(classes.main, classes.mainRaised)} style={{width:'100%', display:'flex', justifyContent:'center', flexDirection:'column', alignItems:'center', minHeight:'300px', maxHeight:'100%', marginTop:'60px', zIndex:'0', paddingBottom:'30px'}}>
                         <div style={{marginBottom:'50px', marginTop:'50px'}}>
                             <h2>{title}</h2>
                         </div>

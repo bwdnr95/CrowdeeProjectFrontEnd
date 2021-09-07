@@ -3,56 +3,55 @@ import { DataGrid } from '@material-ui/data-grid';
 import MenuAppBar from './MenuAppBar';
 import { useEffect, useState } from "react";
 import BackerView from './BackerView';
-import { Button } from '@material-ui/core';
+import { Button, Container } from '@material-ui/core';
 import { ACCESS_TOKEN } from "export/export";
+import { createStyles, makeStyles } from '@material-ui/core';
+
 
 const columns = [
-  {
-    field: 'id',
-    headerName: '아이디',
-    type: 'number',
-    width: 120 },
-  {
-    field: 'userName',
-    headerName: '이름',
-    width: 150,
-    type: 'text',
-    editable: true,
-  },
-  {
+    {
+      field: 'id',
+      headerName: '아이디',
+      // headerAlign : 'center',
+      // align : 'center',
+      minWidth: '120',
+      maxWidth: '200'
+    },
+    {
+      field: 'userName',
+      headerName: '이름',
+      minWidth: '120',
+      maxWidth: '200'
+    },
+    {
       field: 'email',
       headerName: '이메일',
-      type: 'text',
-      width: 120,
-      editable: true,
+      minWidth: '150',
+      maxWidth: '200'
     },
     {
       field: 'registDate',
       headerName: '가입일',
-      type: 'text',
-      width: 200,
-      editable: true,
+      minWidth: '180',
+      maxWidth: '200'
     },
     {
       field: 'authority',
       headerName: '권한',
-      type: 'text',
-      width: 150,
-      editable: true,
+      minWidth: '130',
+      maxWidth: '200'
     },
     {
       field: 'status',
       headerName: '상태',
-      type: 'text',
-      width: 150,
-      editable: true,
+      minWidth: '130',
+      maxWidth: '200'
     },
     {
       field: 'button',
       headerName: '상세보기',
       type: 'button',
-      width: 150,
-      editable: true,
+      width : 130,
       renderCell : (params) => (
         <Button
           variant="contained"
@@ -101,9 +100,7 @@ function backerView(list) {
         })  
           .then(res => res.json())
           .then((res) => {
-            console.log("아래")
             console.log(res)
-            console.log("위")
             if(!res.status==200){
               throw new Error('http 오류');
             }
@@ -112,16 +109,22 @@ function backerView(list) {
         }, []);
 
     return (
-      <div>
+      <div style={{width:'100vw'}}>
         <MenuAppBar></MenuAppBar>
           <h2>Backer</h2>
-        <div style={{ height: 800, width: '100%' }}>
+          <div
+            style={{
+              height : 800,
+              width: "100%"
+            }}
+          >
         <DataGrid
           rows={rows}
           columns={columns}
           pageSize={10}
-          checkboxSelection
-          disableSelectionOnClick/>
+          disableSelectionOnClick
+          style={{width:'100%'}}
+          />
         </div>
       </div>
     )

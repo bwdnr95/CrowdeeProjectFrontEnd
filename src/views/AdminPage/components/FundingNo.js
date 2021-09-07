@@ -36,9 +36,7 @@ import { ACCESS_TOKEN } from "export/export";
         })  
           .then(res => res.json())
           .then((res) => {
-            console.log("아래")
             console.log(res)
-            console.log("위")
             if(!res.status==200){
               throw new Error('http 오류');
             }

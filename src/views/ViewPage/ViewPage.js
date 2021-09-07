@@ -58,13 +58,15 @@ const handleClose = () => {
   const memberId = props.match.params.memberId;
   const [token,setToken] = useState(localStorage.getItem("token"))
   const [wishcontroller,setWishController] = useState();
+  const [nickName,setNickName] = useState(localStorage.getItem("nickName"))
+  const [myPageBtn, setMyPageBtn] = useState()
   const history = useHistory();
 
-    const buttonClick = (url) =>{
-    
-        history.push(url);
-    };
+  const buttonClick = (url) =>{
   
+      history.push(url);
+  };
+
   const [isWishAdd, setIsWishAdd] = useState(false)
   
   const wishAddHandler = () => {
@@ -163,6 +165,18 @@ const handleClose = () => {
   
   },[])
 
+  useEffect(() => {
+    console.log({nickName})
+    if(nickName!=null){
+      setMyPageBtn(
+        <Button onClick={()=>buttonClick('/my')}>
+          <Avatar alt="Remy Sharp" style={{width:'20px', height:'20px', fontSize:'12px', fontWeight:'bold', marginRight:'5px'}}/>
+          <h5 style={{fontWeight:'bold'}}>{nickName}</h5>
+        </Button>
+      )
+    }
+  },[])
+
   const classes = useStyles();
   const { ...rest } = props;
   const imageClasses = classNames(
@@ -241,10 +255,12 @@ const handleClose = () => {
     
     return obj;//문자열 반환
   }
+
+  
   return (
     <div style={{backgroundColor:'white'}}>
       <div style={{display:'flex', justifyContent:'center', alignItems:'center', borderBottom:'2px solid #F0F1EC', height:'10%', width:'100%', backgroundColor:'white', position:'fixed', zIndex:'1'}}>
-          <div style={{marginLeft:'-90%', position:'fixed'}}>
+        <div style={{marginLeft:'-63%', position:'fixed'}}>
               <Button onClick={()=>buttonClick("/")}>
                   <CloseIcon/>
               </Button>
@@ -254,17 +270,11 @@ const handleClose = () => {
                <img src={require('components/Header/CrowdeeLogoFinal2.png').default}/>
               </Button>
           </div>
-          <div style={{marginRight:'-70%', position:'fixed'}}>
+          <div style={{marginRight:'-63%', display:'flex', alignItems:'center'}}>
             <Button onClick={()=>buttonClick("/search")}>
               <SearchIcon/>
             </Button>
-          </div>
-          <div style={{marginRight:'-85%', display:'flex', alignItems:'center'}}>
-            <Button onClick={()=>buttonClick(`/my/${memberId}`)}>
-            <Avatar alt="Remy Sharp" src={view.profileImgUrl} style={{width:'20px', height:'20px', fontSize:'12px', fontWeight:'bold', marginRight:'5px'}}/>
-              {/* <Avatar style={{width:'20px', height:'20px', fontSize:'12px', fontWeight:'bold', marginRight:'5px'}}>{view.profileImgUrl}</Avatar> */}
-              <h5 style={{fontWeight:'bold'}}>{view.creatorNickName}</h5>
-            </Button>
+            {myPageBtn}
           </div>
       </div>
       <Container>
@@ -283,11 +293,10 @@ const handleClose = () => {
               
             </div>
             <div style={{display:'flex', alignItems:'center'}}>
-              <Avatar alt="Remy Sharp" src={view.profileImgUrl} style={{width:'20px', height:'20px', fontSize:'12px', fontWeight:'bold'}}/>
-              <Button onClick={()=>buttonClick(`/my/:memberId`)}>
-                <h5 style={{fontWeight:'bold'}}>{view.creatorNickName}</h5>
-                
-              </Button>
+              <Avatar alt="Remy Sharp" src={view.profileImgUrl} style={{width:'20px', height:'20px', fontSize:'12px', fontWeight:'bold', marginRight:'7px'}}/>
+              {/* <Button onClick={()=>buttonClick(`/my/:memberId`)}> */}
+                <h5 style={{fontWeight:'bold'}}>{view.creatorNickName}</h5>  
+              {/* </Button> */}
             </div> 
           </div>
 
@@ -408,11 +417,11 @@ const handleClose = () => {
             <div style={{border:'1px solid #E9E9E5', borderBottom:'2px solid #F0F1EC', borderRadius:'5px', padding:'20px', position:'sticky', top:'80px'}}>
               <h5 style={{fontWeight:'bold'}}>크리에이터 소개</h5>
               <div style={{display:'flex', alignItems:'center'}}>
-                <Button onClick={()=>buttonClick(`/my/intro/:memberId`)}>
+                {/* <Button onClick={()=>buttonClick(`/my/intro/:memberId`)}> */}
                   <Avatar src={view.profileImgUrl} style={{width:'40px', height:'40px', fontSize:'12px', fontWeight:'bold', marginRight:'10px'}} />
                   <h5 style={{fontWeight:'bold'}}>{view.creatorNickName}</h5>
 
-                </Button>
+                {/* </Button> */}
               </div>
               <div style={{marginTop:'15px'}}>
                 <p style={{fontWeight:'normal', color:'gray'}}>{view.aboutMe}</p>
