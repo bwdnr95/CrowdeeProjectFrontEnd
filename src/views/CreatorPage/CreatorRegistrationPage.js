@@ -17,6 +17,7 @@ export default function CreatorRegistrationPage(props) {
     
 
     const [token,setToken] = useState(localStorage.getItem("token"))
+    console.log(token)
     const [manageUrl,setManageUrl] = useState(props.match.params.manageUrl)
     const [form,setForm] = useState({});
   
