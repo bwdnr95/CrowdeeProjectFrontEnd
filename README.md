@@ -28,11 +28,11 @@
 
 
 ## 1.메인페이지
->진행되고 있는 펀딩을 카드형식으로 볼 수 있습니다.
+>진행되고 있는 펀딩을 카드형식으로 카테고리별로 볼 수 있습니다.
 
 ![image](https://user-images.githubusercontent.com/74484564/132465340-d9c0b3eb-9854-4f99-bf29-100a0fae28ff.png)
-
-
+![image](https://user-images.githubusercontent.com/82789460/133087052-e2bd0e42-e800-4216-9242-02e085f40e5a.png)
+![image](https://user-images.githubusercontent.com/82789460/133087406-372ed8d4-4fae-486f-92aa-cff8cc04f26e.png)
 ## 2.회원가입/로그인
 >간단한 이메일 인증과정을 거쳐 최소한의 정보를 통해 회원가입을 하고 로그인할 수 있습니다.
 
