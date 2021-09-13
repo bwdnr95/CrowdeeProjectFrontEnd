@@ -66,25 +66,7 @@ export default function Components(props) {
           
           ]}
       />
-      {/* <Parallax image={
-        
-        [("https://cdn.pixabay.com/photo/2016/05/06/17/06/ballerinas-1376250_1280.jpg"),
-        ("https://cdn.pixabay.com/photo/2014/08/29/04/58/people-430545_1280.jpg"),
-        ("https://cdn.pixabay.com/photo/2017/02/25/22/05/orchestra-2098877_1280.jpg"),
-        ("https://cdn.pixabay.com/photo/2013/02/26/01/10/auditorium-86197_1280.jpg"),
-        ("https://cdn.pixabay.com/photo/2017/07/21/23/57/concert-2527495_1280.jpg")
-        ]}>
-        <div className={classes.container}>
-          <GridContainer>
-            <GridItem>
-              <div className={classes.brand}>
-                <h1 className={classes.title}>Crowdee</h1>
-              </div>
-            </GridItem>
-          </GridContainer>
-        </div>0
-      </Parallax> */}
-
+      
       <div className={classNames(classes.main, classes.mainRaised)}>
         <ProductSection/>
       </div>

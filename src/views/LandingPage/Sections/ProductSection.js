@@ -13,9 +13,9 @@ const useStyles = makeStyles(styles);
 
 export default function ProductSection() {
   const classes = useStyles();
-  const fund = []
+  
   const [fundings, setFundings] = useState([]);
-  const [fundingsKey,setFundingsKey] = useState([]);
+  
   const [categoryTitle,setCategoryTitle] = useState([
      "신규 추천 펀딩" , "달성 임박 펀딩" ,"달성 완료 펀딩" , "인기 추천 펀딩"
   ])
@@ -29,12 +29,9 @@ export default function ProductSection() {
       }
       return res.json()})
       .then((res)=>{
-        console.log(res)
-        res.map((funding)=>{
-          fund.push(funding)
-        })
-        setFundings(fund);
-        setFundingsKey(Object.keys(fundings))
+        
+        setFundings(res);
+        
     
       })
       .catch((e) =>{
@@ -48,42 +45,35 @@ export default function ProductSection() {
   return (
     <div>
       <div className={classes.section}>
-       
-        
               {fundings.map((target,idx) => (
-                
-                
-                  <>
-                 <GridContainer justify="center" style={{marginTop:"30px"}}>
-                  <GridItem xs={12} sm={12} md={8}>
-                  <h4>{categoryTitle[idx]}</h4>
-                  </GridItem>
-                 </GridContainer>
-                   <GridContainer justify="center">
-                     <GridItem>
-                       <GridContainer justify="center">
-                         {target.map((funding)=>(
-                           <FundingCard 
-                           id={funding.funding_id}
-                           title={funding.title}
-                           imgUrl={funding.thumbNailUrl}
-                           summary={funding.summary}
-                           restDate={funding.restDate}
-                           category={funding.category}
-                           totalFundraising={funding.totalFundraising}
-                           goalFundraising={funding.goalFundraising}
-                           ROA={funding.rateOfAchievement}
-                           projectUrl={funding.projectUrl} />
-                         ))}
-                         
+                <>
+                  <GridContainer justify="center" style={{marginTop:"30px"}}>
+                    <GridItem xs={12} sm={12} md={8}>
+                      <h4>{categoryTitle[idx]}</h4>
+                    </GridItem>
+                  </GridContainer>
+                  <GridContainer justify="center">
+                    <GridItem>
+                      <GridContainer justify="center">
+                        {target.map((funding)=>(
+                          <FundingCard 
+                          id={funding.funding_id}
+                          title={funding.title}
+                          imgUrl={funding.thumbNailUrl}
+                          summary={funding.summary}
+                          restDate={funding.restDate}
+                          category={funding.category}
+                          totalFundraising={funding.totalFundraising}
+                          goalFundraising={funding.goalFundraising}
+                          ROA={funding.rateOfAchievement}
+                          projectUrl={funding.projectUrl} />
+                        ))}
                       </GridContainer>
-                     </GridItem>
-                   </GridContainer>
-                   </>
-                )
-               
-              )} 
-             
+                    </GridItem>
+                  </GridContainer>
+                </>
+              )
+            )}       
       </div>
     </div>
   );
