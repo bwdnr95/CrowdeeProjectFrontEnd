@@ -280,9 +280,7 @@ export default function WritePage(props) {
         })
         
     }
-    // if(creatorId){
-    //     edit()
-    // }
+   
     useEffect(() => {
         setPath(`/creator/create/thumbNail/${manageUrl}`);
         setManageUrl(props.match.params.manageUrl)
